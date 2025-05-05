@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh1vo7v8417h0"
+path="res://.godot/imported/OOT_PauseMenu_Close.wav-54662aaee0df78ee5814f474107cd8d1.sample"
+
+[deps]
+
+source_file="res://assets (2)/oot/sound/OOT_PauseMenu_Close.wav"
+dest_files=["res://.godot/imported/OOT_PauseMenu_Close.wav-54662aaee0df78ee5814f474107cd8d1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

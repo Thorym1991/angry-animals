@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://di1lxcx6xxbus"
+path="res://.godot/imported/stretch2.ogg-1c3439c878f22d2965cda9fcf45ad631.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets (2)/audio/stretch2.ogg"
+dest_files=["res://.godot/imported/stretch2.ogg-1c3439c878f22d2965cda9fcf45ad631.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

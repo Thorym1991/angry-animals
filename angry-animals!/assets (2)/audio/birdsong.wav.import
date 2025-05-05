@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://siy5a0m8dqal"
+path="res://.godot/imported/birdsong.wav-43a8d4493f3128f14a9c0a64ed73fee8.sample"
+
+[deps]
+
+source_file="res://assets (2)/audio/birdsong.wav"
+dest_files=["res://.godot/imported/birdsong.wav-43a8d4493f3128f14a9c0a64ed73fee8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

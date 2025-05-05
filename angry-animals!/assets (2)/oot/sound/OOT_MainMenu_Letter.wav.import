@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dl6pf1addwdyi"
+path="res://.godot/imported/OOT_MainMenu_Letter.wav-be494d90df5fec504c112f9d75f76436.sample"
+
+[deps]
+
+source_file="res://assets (2)/oot/sound/OOT_MainMenu_Letter.wav"
+dest_files=["res://.godot/imported/OOT_MainMenu_Letter.wav-be494d90df5fec504c112f9d75f76436.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
