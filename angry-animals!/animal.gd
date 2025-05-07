@@ -1,7 +1,8 @@
 extends RigidBody2D
 
-
+#region var
 enum AnimalState {Ready, Drag, Release}
+
 
 
 const DRAG_LIM_MAX: Vector2 = Vector2(0,60)
@@ -17,16 +18,22 @@ const IMPULSE_MAX: float = 1200.0
 @onready var debug_label: Label = $debugLabel
 
 
+
+
 var _state: AnimalState = AnimalState.Ready
 var _start: Vector2 = Vector2.ZERO
 var _drag_start: Vector2 = Vector2.ZERO
 var _dragged_vector: Vector2 = Vector2.ZERO
 var _arrow_scale_x: float = 0.0
+#endregion
 
+#region unhanled
 func _unhandled_input(event: InputEvent) -> void:
 	if _state == AnimalState.Drag and event.is_action_released("drag"):
 		call_deferred("change_state", AnimalState.Release)
+#endregion
 
+#region ready
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup()
@@ -37,8 +44,11 @@ func setup() -> void:
 	arrow.hide()
 	_start = position
 
+#endregion
 
 
+
+#region Phrsics_process
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	update_state()
@@ -53,6 +63,9 @@ func  update_debug_label() -> void:
 	ds += "_dragged_vector:%.1f, %.1f" % [_dragged_vector.x, _dragged_vector.y ]
 	debug_label.text = ds
 
+func die()-> void:
+	SignalHub.emit_on_animal_died()
+	queue_free()
 #endregion
 
 #region drag
@@ -97,6 +110,7 @@ func start_release() -> void:
 	launch_sound.play()
 	freeze = false
 	apply_central_impulse(calculate_impulse())
+	SignalHub.emit_on_attempt_made()
 
 #endregion
 
@@ -128,14 +142,22 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	pass # Replace with function body.
+	die()
 
 
 func _on_sleeping_state_changed() -> void:
-	pass # Replace with function body.
+	if sleeping == true:
+		for body in  get_colliding_bodies():
+			if body is Cup:
+				body.die()
+		call_deferred("die")
 
 
-func _on_body_entered(body: Node) -> void:
-	pass # Replace with function body.
+func _on_body_entered(_body: Node) -> void:
+	if _body is Cup and kick_sound.playing == false:
+		kick_sound.play()
+	
+
+#endregion
 
 #endregion

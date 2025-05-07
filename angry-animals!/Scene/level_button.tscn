@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtc4cqg7fbk4k"]
+
+[ext_resource type="Texture2D" uid="uid://cr4dxnfcdx8pd" path="res://assets/ui/panel_beige.png" id="1_0eqxd"]
+[ext_resource type="Script" uid="uid://d114ljk0jjtk4" path="res://Scene/level_button.gd" id="2_0ofli"]
+[ext_resource type="FontFile" uid="uid://cmudnsxdohf3i" path="res://assets (2)/fonts/LuckiestGuy-Regular.ttf" id="2_8serh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ofli"]
+font = ExtResource("2_8serh")
+font_size = 48
+font_color = Color(0.838897, 0.838897, 0.838897, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_evuph"]
+font = ExtResource("2_8serh")
+font_size = 33
+font_color = Color(0.838897, 0.838897, 0.838897, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelButton" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture_normal = ExtResource("1_0eqxd")
+script = ExtResource("2_0ofli")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MC/VBoxContainer"]
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_0ofli")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel2" type="Label" parent="MC/VBoxContainer"]
+layout_mode = 2
+text = "999"
+label_settings = SubResource("LabelSettings_evuph")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

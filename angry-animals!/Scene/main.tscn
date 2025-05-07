@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsgtmwk0kxyg8"]
+[gd_scene load_steps=7 format=3 uid="uid://dsgtmwk0kxyg8"]
 
 [ext_resource type="Texture2D" uid="uid://bjtcnbs72fxr7" path="res://assets/env/MainBG.png" id="1_f6udf"]
+[ext_resource type="PackedScene" uid="uid://dtc4cqg7fbk4k" path="res://Scene/level_button.tscn" id="2_2wwxx"]
+[ext_resource type="FontFile" uid="uid://cmudnsxdohf3i" path="res://assets (2)/fonts/LuckiestGuy-Regular.ttf" id="3_3amdw"]
+[ext_resource type="Texture2D" uid="uid://cls7ylslbgpky" path="res://assets/player/parrot.png" id="4_1xcnr"]
+[ext_resource type="AudioStream" uid="uid://cvirqsq13cqxe" path="res://assets/audio/birdsong.wav" id="5_3amdw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ow1sv"]
+font = ExtResource("3_3amdw")
+font_size = 62
+font_color = Color(0.667332, 0.214859, 0.26315, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -22,3 +33,52 @@ offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_f6udf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -59.5
+offset_right = 235.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 66
+
+[node name="LevelButton" parent="HBoxContainer" instance=ExtResource("2_2wwxx")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HBoxContainer" instance=ExtResource("2_2wwxx")]
+layout_mode = 2
+level_number = "2"
+
+[node name="LevelButton3" parent="HBoxContainer" instance=ExtResource("2_2wwxx")]
+layout_mode = 2
+level_number = "3"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = 27.0
+offset_right = 202.0
+offset_bottom = 74.0
+grow_horizontal = 2
+text = "Angry Animals"
+label_settings = SubResource("LabelSettings_ow1sv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(591, 178)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1xcnr")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3amdw")
+volume_db = -32.792
+autoplay = true
