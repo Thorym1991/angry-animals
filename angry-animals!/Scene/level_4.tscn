@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxmhr3c5kvm05"]
+
+[ext_resource type="PackedScene" uid="uid://qmy3smyx8p82" path="res://Scene/level_base.tscn" id="1_5mtfs"]
+[ext_resource type="PackedScene" uid="uid://c6yhc7d6p7dmg" path="res://cup.tscn" id="2_830qh"]
+[ext_resource type="Texture2D" uid="uid://thqijjerarye" path="res://assets/env/elementWood015.png" id="3_kxdlq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5mtfs"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l45re"]
+size = Vector2(287.947, 73.8066)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8stx"]
+size = Vector2(66, 363.5)
+
+[node name="Level_4" instance=ExtResource("1_5mtfs")]
+
+[node name="Cup" parent="." index="4" instance=ExtResource("2_830qh")]
+position = Vector2(887, 462)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="5"]
+physics_material_override = SubResource("PhysicsMaterial_5mtfs")
+
+[node name="Woodsprite" type="Node2D" parent="StaticBody2D" index="0"]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/Woodsprite" index="0"]
+position = Vector2(1031, 114)
+rotation = 3.96364
+scale = Vector2(1.29, 1)
+texture = ExtResource("3_kxdlq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D/Woodsprite" index="1"]
+position = Vector2(740.68, 357.94)
+rotation = 1.55509
+scale = Vector2(1.76428, 1)
+texture = ExtResource("3_kxdlq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(1036, 115)
+rotation = 0.837758
+shape = SubResource("RectangleShape2D_l45re")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="2"]
+position = Vector2(739, 347.25)
+shape = SubResource("RectangleShape2D_c8stx")
